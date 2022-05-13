@@ -2,70 +2,85 @@
 
 // Calculate the subtota, tax, and total for food order
 function enterClicked () {
-
-
-  // get rize size 
-  let select = document.getElementById("rice");
-  let rice = select.options[select.selectedIndex].value;
-
-  // get topping specifications 
-  let select2 = document.getElementById("toppings");
-  let toppings = select.options[select.selectedIndex].value;
-
-  //constants, initialize variables
+  //constants
   const REGULAR_PRICE = 2;
   const LARGE_PRICE = 3;
   const EXTRALARGE_PRICE = 4;
+  const TOPPINGS_PRICE = 0.50;
+  const EXTRA_PRICE = 1;
+  const HST = 0.13;
 
+  // initialize variables (0 is written over)
+  let sizePrice = 0
+  let toppingsPrice = 0
+  let extraPrice = 0
+  
+  // get rize size 
+  let selectRice = document.getElementById("rice");
+  let rice = selectRice.options[selectRice.selectedIndex].value;
+
+  
+  
+
+  // get topping specifications 
+  let selectToppings = document.getElementById("toppings");
+  let toppings = selectToppings.options[selectToppings.selectedIndex].value;
+
+  // get extra specifications 
+  let selectExtra = document.getElementById("Side");
+  let extra = selectExtra.options[selectExtra.selectedIndex].value;
+  
 
   // if user selects regular for rice
-	if (size == "Regular") {
+	if (rice == "Regular") {
 		sizePrice = REGULAR_PRICE
   }
-
   // else if user selects large for rice
-	else if (size == "Large") {
+	else if (rice == "Large") {
 		sizePrice = LARGE_PRICE
   }
-
   // else if user selects Extra Large for rice
-	else if (size == "ExtraLarge") {
+	else if (rice == "Extra Large") {
 		sizePrice = EXTRALARGE_PRICE
   }
-
   // else if none of the conditions are met
 	else {
 		sizePrice = 0
   }
 
-
-  //constants, initialize variables
-   const TOPPINGS_PRICE = 0.50;
+  
+  
   
   // if user selects seaweed for toppings
-	if (toppings == "Seaweed" || toppings == "Seasame") {
+	if (toppings == "Seaweed" || toppings == "Sesame") {
 		toppingsPrice  = TOPPINGS_PRICE 
   }
-
   // else if user selects both toppings for toppings
 	else if (toppings == "TwoToppings") {
 		toppingsPrice  = TOPPINGS_PRICE * 2
   }
-
   // else if none of the conditions are met
 	else {
 		toppingsPrice  = 0
   }
 
 
+  if (extra == "Kimchi") {
+    extraPrice = EXTRA_PRICE
+  }
+  else {
+    extraPrice = 0
+  }
+  
+
   //variables, calculations 
-  let subtotal = sizePrice + toppingsPrice;
-  let tax = subtotal * 0.13;
+  let subtotal = sizePrice + toppingsPrice + extraPrice;
+  let tax = subtotal * HST;
   let total = subtotal + tax;
 
   
   //display the results
-  document.getElementById('user-info').innerHTML = "Your subtotal is " + subtotal.toNearest(2) + ". While Tax Price is " + tax.toNearest(2) + ". Your total cost is " + total.toNearest(2)
+  document.getElementById('display-results').innerHTML = "Your subtotal is $" + subtotal.toFixed(2) + ". While Tax Price is $" + tax.toFixed(2) + ". Your total cost is $" + total.toFixed(2)
 
 
   

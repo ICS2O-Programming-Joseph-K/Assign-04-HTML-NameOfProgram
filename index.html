@@ -4,7 +4,7 @@
 
     <!-- Metadata for this site -->
     <meta charset="utf-8">
-    <meta name="description" content="Museum price calculator">
+    <meta name="description" content="Rice Order Calculator">
     <meta name="keywords" content="immaculata, ics2o">
     <meta name="author" content="Joseph Kwon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,7 @@
     
     <link rel="stylesheet" href="./css/style.css">
     
-    <title>Museum price calculator</title>
+    <title>Rice Order Calculator</title>
     
   </head>
   <body>
@@ -25,21 +25,19 @@
     <script src="./js/script.js"></script>
     
      
-    <h1>Museum price calculator</h1>
+    <h1>Rice Order Calculator</h1>
     
 		<h3>Enter the requested information into the textfield:</h3>
 
     <!-- Receiving user input -->
 		<form action="javascript:enterClicked()">		
 	
-      <br>
-      <br>
+      <br><br>
 
       <!--drop down menu for day -->
-      <label for="rice">Select rice size:</label>
+      <label for="select-rice">Select rice size:</label>
   
       <select name="rice" id="rice">
-        <option value="none"></option>
         <option value="Regular">Regular</option>
         <option value="Large">Large</option>
         <option value="Extra Large">Extra Large</option>
@@ -51,22 +49,24 @@
       <label for="rice">Select toppings:</label>
   
       <select name="toppings" id="toppings">
-        <option value="none1"></option>
+        <option value="None">None</option>
         <option value="Seaweed">Seaweed</option>
-        <option value="Seasame">Seasame</option>
+        <option value="Sesame">Sesame</option>
         <option value="TwoToppings">Both Toppings</option>
       </select>
       <br>
       <br>
       <br>
+
+      <input type="checkbox" id="Side" name="Side" value="Kimchi">
+<label for="Side"> Kimchi</label><br>
+      <br><br>
             
       <input type="submit" value="Check my total">
 		</form>
 			
 		<!-- Create a space where the user information will be displayed -->
 		<div id="display-results">
-			<div id="user-info">
-			</div>
 		</div>
   </body>
 </html></h1>
