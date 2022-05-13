@@ -1,39 +1,73 @@
 "use strict"
 
-// Calculate what museum admission fee you will need to pay depending on day and age
+// Calculate the subtota, tax, and total for food order
 function enterClicked () {
-  	// initialize variables
-	let Output = ""
-  
-	// get user input
-	let age = parseInt(document.getElementById('age').value)
 
-  // get day of the week (different from day)
+
+  // get rize size 
   let select = document.getElementById("rice");
   let rice = select.options[select.selectedIndex].value;
 
-  // get day of the week (different from day)
-  let select1 = document.getElementById("extra");
-  let extra = select1.options[select.selectedIndex].value;
+  // get topping specifications 
+  let select2 = document.getElementById("toppings");
+  let toppings = select.options[select.selectedIndex].value;
+
+  //constants, initialize variables
+  const REGULAR_PRICE = 2;
+  const LARGE_PRICE = 3;
+  const EXTRALARGE_PRICE = 4;
 
 
-  // HOW ON EARTH DO YOU WRITE THIS AS AN CONSTANT!!?!?!??!?!?!------------------------------------------
-  //let volume = (rice + extra) * 0.13 + rice + extra;
+  // if user selects regular for rice
+	if (size == "Regular") {
+		sizePrice = REGULAR_PRICE
+  }
 
+  // else if user selects large for rice
+	else if (size == "Large") {
+		sizePrice = LARGE_PRICE
+  }
 
-  	// else if user input for day is Tuesday or Thursday OR age is 12 - 21
-	if (rice == "R" || extra == "Kimchi") {
-		Output = "Student discount"
-	} 
+  // else if user selects Extra Large for rice
+	else if (size == "ExtraLarge") {
+		sizePrice = EXTRALARGE_PRICE
+  }
 
-    //else if none of the conditions are met
+  // else if none of the conditions are met
 	else {
-		Output = "Full admission"
-	}
-	
-  // display the results
-  document.getElementById('user-info').innerHTML = Output     
+		sizePrice = 0
+  }
 
-  // display calculated result to user
-  //document.getElementById('user-info').innerHTML = "The volume of your sphere is " + volume.toFixed(2) + " m<sup>3</sup>"
+
+  //constants, initialize variables
+   const TOPPINGS_PRICE = 0.50;
+  
+  // if user selects seaweed for toppings
+	if (toppings == "Seaweed" || toppings == "Seasame") {
+		toppingsPrice  = TOPPINGS_PRICE 
+  }
+
+  // else if user selects both toppings for toppings
+	else if (toppings == "TwoToppings") {
+		toppingsPrice  = TOPPINGS_PRICE * 2
+  }
+
+  // else if none of the conditions are met
+	else {
+		toppingsPrice  = 0
+  }
+
+
+  //variables, calculations 
+  let subtotal = sizePrice + toppingsPrice;
+  let tax = subtotal * 0.13;
+  let total = subtotal + tax;
+
+  
+  //display the results
+  document.getElementById('user-info').innerHTML = "Your subtotal is " + subtotal.toNearest(2) + ". While Tax Price is " + tax.toNearest(2) + ". Your total cost is " + total.toNearest(2)
+
+
+  
 }
+                                                                                                                                                                                
