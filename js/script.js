@@ -19,17 +19,22 @@ function enterClicked () {
   let selectRice = document.getElementById("rice");
   let rice = selectRice.options[selectRice.selectedIndex].value;
 
-  
-  
-
   // get topping specifications 
   let selectToppings = document.getElementById("toppings");
   let toppings = selectToppings.options[selectToppings.selectedIndex].value;
 
+  /*
   // get extra specifications 
-  let selectExtra = document.getElementById("Side");
+  let selectExtra = document.getElementById("Kimchi");
   let extra = selectExtra.options[selectExtra.selectedIndex].value;
-  
+
+  document.getElementById('display-results').innerHTML = extra
+  */
+
+  let views = document.getElementById("Side").value
+  document.getElementById('display-results').innerHTML = views
+
+  /*
 
   // if user selects regular for rice
 	if (rice == "Regular") {
@@ -78,11 +83,10 @@ function enterClicked () {
   let tax = subtotal * HST;
   let total = subtotal + tax;
 
+  */
   
   //display the results
-  document.getElementById('display-results').innerHTML = "Your subtotal is $" + subtotal.toFixed(2) + ". While Tax Price is $" + tax.toFixed(2) + ". Your total cost is $" + total.toFixed(2)
-
-
+  //document.getElementById('display-results').innerHTML = "Your subtotal is $" + subtotal.toFixed(2) + ". While Tax Price is $" + tax.toFixed(2) + ". Your total cost is $" + total.toFixed(2)
   
 }
                                                                                                                                                                                 
