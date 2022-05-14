@@ -1,6 +1,6 @@
 "use strict"
 
-// Calculate the subtota, tax, and total for food order
+// Calculate the subtotal, tax, and total for food order
 function enterClicked () {
   //constants
   const REGULAR_PRICE = 2;
@@ -23,18 +23,19 @@ function enterClicked () {
   let selectToppings = document.getElementById("toppings");
   let toppings = selectToppings.options[selectToppings.selectedIndex].value;
 
-  /*
-  // get extra specifications 
-  let selectExtra = document.getElementById("Kimchi");
+  let selectExtra = document.getElementById("extra");
   let extra = selectExtra.options[selectExtra.selectedIndex].value;
 
-  document.getElementById('display-results').innerHTML = extra
-  */
 
-  let views = document.getElementById("Side").value
-  document.getElementById('display-results').innerHTML = views
+  
+  //get extra specifications 
+  //let extra = document.getElementById("Side").value
+ 
 
-  /*
+
+  
+
+  
 
   // if user selects regular for rice
 	if (rice == "Regular") {
@@ -53,7 +54,7 @@ function enterClicked () {
 		sizePrice = 0
   }
 
-  
+    
   
   
   // if user selects seaweed for toppings
@@ -69,24 +70,28 @@ function enterClicked () {
 		toppingsPrice  = 0
   }
 
+  
 
+  // if user selects kimchi for extra
   if (extra == "Kimchi") {
     extraPrice = EXTRA_PRICE
   }
+  // else if noneof the conditions are met
   else {
     extraPrice = 0
   }
   
 
+  
   //variables, calculations 
   let subtotal = sizePrice + toppingsPrice + extraPrice;
   let tax = subtotal * HST;
   let total = subtotal + tax;
 
-  */
+  
   
   //display the results
-  //document.getElementById('display-results').innerHTML = "Your subtotal is $" + subtotal.toFixed(2) + ". While Tax Price is $" + tax.toFixed(2) + ". Your total cost is $" + total.toFixed(2)
+  document.getElementById('display-results').innerHTML = "Your subtotal is $" + subtotal.toFixed(2) + " CAD. While Tax Price is $" + tax.toFixed(2) + " CAD. Your total cost is $" + total.toFixed(2) + " CAD."
   
 }
                                                                                                                                                                                 
